@@ -2,7 +2,7 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-SETTINGS_DIR 
+SETTINGS_DIR
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -20,7 +20,7 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
-
+# just a note to test git 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
