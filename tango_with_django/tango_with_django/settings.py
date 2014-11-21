@@ -13,6 +13,8 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+#I'm just changing one thing to test git
+
 
 DATABASES = {
     'default': {
