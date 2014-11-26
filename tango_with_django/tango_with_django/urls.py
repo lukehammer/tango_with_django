@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^rango/', include('rango.urls')),
+    # next line is me attempting to build the about page from scrach.
+
 )
 if settings.DEBUG:
     urlpatterns += patterns(
