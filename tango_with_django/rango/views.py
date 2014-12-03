@@ -23,6 +23,10 @@ def index(request):
     # Note that the first parameter is the template we wish to use.
     return render_to_response('rango/index.html', context_dict, context)
 
+def about(request):
+
+    return render_to_response('rango/about.html')
+
 
 def ajax(request):
         # Request the context of the request.
