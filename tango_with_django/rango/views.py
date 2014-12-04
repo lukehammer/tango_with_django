@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from json import dumps, loads
 
 
@@ -22,6 +22,12 @@ def index(request):
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
     return render_to_response('rango/index.html', context_dict, context)
+
+
+def dom(request):
+    if request.method == "POST":
+        print request.POST
+    return render(request, 'rango/dom.html')
 
 def about(request):
 

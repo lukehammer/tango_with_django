@@ -6,4 +6,5 @@ urlpatterns = patterns('',
                        url(r'^ajax/$', views.ajax, name='ajax'),
                         # need to add veiw first
                         url(r'^about/$', views.about, name='about'),
+                        url(r'^dom/$', views.dom, name='dom'),
 )
