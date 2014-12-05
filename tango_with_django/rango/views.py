@@ -42,10 +42,10 @@ def ajax(request):
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     if request.method == "POST":
-        event = Event()
-        event.title = request.POST["title"]
-        event.save()
-    
+        category = Category()
+        category.name = request.POST["name"]
+        category.save()
+
     category_list = list(Category.objects.all())
 
     test_list = []

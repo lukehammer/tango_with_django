@@ -79,19 +79,15 @@
     </style>
 </head>
 <body>
-<form action="/rango/dom/" method="post">
+<form action="/rango/ajax/" method="post">
     {%  csrf_token  %}
-    <input name="'name">
+    <input name="name">
     <input type="submit" value="submit">
 
 </form>
 <ul id="list">
     <li id="template" class="template">
 
-        <span>
-           Name: {phone.name}
-        </span>
-        <br>
         <span>
            Name: {phone.name}
         </span>
