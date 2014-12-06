@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                         # need to add veiw first
                         url(r'^about/$', views.about, name='about'),
                         url(r'^dom/$', views.dom, name='dom'),
+                        url(r'^jsexample/$', views.jsexample, name='jsexample'),
 )

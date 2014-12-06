@@ -63,14 +63,42 @@
         }
 
         function fetch() {
+            request.onload = undefined;
             request.onreadystatechange = onRequestChange;
-            request.open("GET", "/rango/ajax", true);
+            request.open("GET", "/rango/ajax/", true);
             request.send();
         }
         function load() {
             fetch();
         }
         window.addEventListener("load", load);
+        function saveData(formData){
+            request.open("POST","/rango/ajax/",true);
+            request.onload = fetch;
+            request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            request.send(formData);
+        }
+        function captureSubmit(){
+            //Get inputs inside form and iterate over them.
+            var elementList = document.getElementById("f1").children;
+            formDataList = [];
+            //Creating something like this:
+            //title=spiderman&role=hero&color=red
+            for(var i=0; i < elementList.length; i++){
+                var element = elementList[i];
+                formDataList.push(
+                        encodeURIComponent(element.name)
+                        + "=" +
+                        encodeURIComponent(element.value)
+                );
+                console.log(element.name);
+            }
+            saveData(formDataList.join("&"));
+            //CANCEL FORM SUBMISSION; must be returned in onsubmit below.
+            return false;
+        }
+
+
     </script>
     <style>
         .template {
@@ -79,13 +107,14 @@
     </style>
 </head>
 <body>
-<form action="/rango/ajax/" method="post">
-    {%  csrf_token  %}
-    <input name="name">
+<form id="f1" action="/rango/ajax/" method="post" onsubmit=" return captureSubmit()">
+    <input name="name" value = "default">
     <input type="submit" value="submit">
 
 </form>
 <ul id="list">
+</ul>
+<ul class="template">
     <li id="template" class="template">
 
         <span>
@@ -99,4 +128,5 @@
 
 
 </body>
+
 </html>

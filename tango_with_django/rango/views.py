@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response, render
 from json import dumps, loads
-
+from django.views.decorators.csrf import csrf_exempt
 
 #import the Category model
 from rango.models import Category
@@ -33,7 +33,10 @@ def about(request):
 
     return render_to_response('rango/about.html')
 
+def jsexample(request):
+    return render_to_response('rango/jsexample.html')
 
+@csrf_exempt
 def ajax(request):
         # Request the context of the request.
     # The context contains information such as the client's machine details, for example.
