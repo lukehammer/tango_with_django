@@ -3,6 +3,27 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, render
 from json import dumps, loads
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.shortcuts import redirect
+
+def register(request):
+    if request.method == "POST":
+        User.objects.create.
+
+
+def login(request):
+    if request.method == "POST":
+        user = auth.authenticate(username=request.POST["username"],
+                                password=request.POST["password"])
+        if user is not None:
+            # the password verified for the user
+            if user.is_active:
+                print("User is valid, active and authenticated" )
+                return redirect('list')
+            else:
+                print("The password is valid, but the account has been disabled")
+        else:   # the authnticat???????????????????????
 
 #import the Category model
 from rango.models import Category
