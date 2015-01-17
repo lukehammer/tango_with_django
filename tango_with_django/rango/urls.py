@@ -8,5 +8,5 @@ urlpatterns = patterns('',
                         url(r'^about/$', views.about, name='about'),
                         url(r'^dom/$', views.dom, name='dom'),
                         url(r'^jsexample/$', views.jsexample, name='jsexample'),
-                        url(r^list$,)
+
 )

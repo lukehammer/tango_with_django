@@ -6,27 +6,28 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.shortcuts import redirect
+from rango.models import Category
 
-def register(request):
-    if request.method == "POST":
-        User.objects.create.
+# def register(request):
+#     if request.method == "POST":
+#         User.objects.create.
 
 
-def login(request):
-    if request.method == "POST":
-        user = auth.authenticate(username=request.POST["username"],
-                                password=request.POST["password"])
-        if user is not None:
-            # the password verified for the user
-            if user.is_active:
-                print("User is valid, active and authenticated" )
-                return redirect('list')
-            else:
-                print("The password is valid, but the account has been disabled")
-        else:   # the authnticat???????????????????????
+# def login(request):
+#     if request.method == "POST":
+#         user = auth.authenticate(username=request.POST["username"],
+#                                 password=request.POST["password"])
+#         if user is not None:
+#             # the password verified for the user
+#             if user.is_active:
+#                 print("User is valid, active and authenticated" )
+#                 return redirect('list')
+#             else:
+#                 print("The password is valid, but the account has been disabled")
+#         else:   # the authnticat???????????????????????
 
 #import the Category model
-from rango.models import Category
+
 
 def index(request):
     # Request the context of the request.
@@ -59,12 +60,7 @@ def jsexample(request):
 
 @csrf_exempt
 def ajax(request):
-        # Request the context of the request.
-    # The context contains information such as the client's machine details, for example.
-    context = RequestContext(request)
 
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     if request.method == "POST":
         category = Category()
         category.name = request.POST["name"]
